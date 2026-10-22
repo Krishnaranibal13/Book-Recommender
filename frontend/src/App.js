@@ -6,7 +6,7 @@ function App() {
   const [error, setError] = useState("");
 
  
-const API_URL = "https://aaashish999-5000.app.github.dev"; 
+const API_URL = "/api"; 
 
 
   async function handleRecommend() {
@@ -16,7 +16,7 @@ const API_URL = "https://aaashish999-5000.app.github.dev";
     }
     setError("");
     try {
-      const response = await fetch(`${API_URL}/books?genre=${genre}`);
+      const response = await fetch(`${API_URL}/books?genre=${encodeURIComponent(genre)}`);
       if (!response.ok) {
         throw new Error("Failed to fetch from backend");
       }
